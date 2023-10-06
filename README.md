@@ -1,6 +1,6 @@
-# Lab 02
+# Lab 07
 
-## Due: Week 8, Monday, 10:00 am AEST
+## Due: Week 8, Monday, 10:00 am AEDT
 
 [[_TOC_]]
 
