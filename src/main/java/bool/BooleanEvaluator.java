@@ -39,7 +39,7 @@ public class BooleanEvaluator {
         System.out.println(BooleanEvaluator.evaluate(n1));
         System.out.println(BooleanEvaluator.prettyPrint(n1));
 
-        String jsonString = readInData("data.json");
+        String jsonString = readInData("data2.json");
         String tmp = JsonParser.parseString(jsonString).getAsJsonObject().toString();
         JSONObject j = new JSONObject(tmp);
 

@@ -1,7 +1,7 @@
 package bool;
 
 public class BooleanVariable implements BooleanNode {
-    boolean value;
+    private boolean value;
 
     BooleanVariable(boolean value) {
         this.value = value;

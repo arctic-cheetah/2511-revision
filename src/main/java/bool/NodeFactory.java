@@ -10,22 +10,22 @@ public class NodeFactory {
         Iterator<String> keys = obj.keys();
         while (keys.hasNext()) {
             String currKey = keys.next();
+
             if (currKey.equals("node")) {
-                // Is the node a booleanExpression or BooleanOperator?
+                // Is the node a booleanVariable or BooleanOperator?
                 if (obj.get(currKey).toString().equals("value")) {
+                    // node is a booleanVariable
                     currKey = keys.next();
-                    String boolValue = obj.get(currKey).toString();
-                    return new BooleanVariable(boolValue);
+                    return new BooleanVariable(obj.get(currKey).toString());
                 } else {
+                    // Node is an boolean Operator, check the others
                     node = new BooleanOperator(obj.get(currKey).toString());
                 }
-                // Node is an boolean Operator
+                // Recursion below
             } else if (currKey.equals("subnode1")) {
-                JSONObject tmp = (JSONObject) obj.get(currKey);
-                node.setLeft(getBooleanNode(tmp));
+                node.setLeft(getBooleanNode(getJsonObjFromKey(obj, currKey)));
             } else if (currKey.equals("subnode2")) {
-                JSONObject tmp = (JSONObject) obj.get(currKey);
-                node.setRight((getBooleanNode(tmp)));
+                node.setRight(getBooleanNode(getJsonObjFromKey(obj, currKey)));
             }
 
         }
@@ -33,5 +33,10 @@ public class NodeFactory {
         if (node.getRight() == null)
             node.setRight(node.getLeft());
         return node;
+    }
+
+    private static JSONObject getJsonObjFromKey(JSONObject obj, String currKey) {
+        JSONObject tmp = (JSONObject) obj.get(currKey);
+        return tmp;
     }
 }
