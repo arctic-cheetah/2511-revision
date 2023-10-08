@@ -20,8 +20,7 @@ public class Game {
     }
 
     public boolean battle() {
-        // TODO
-        return false;
+        return random.nextDouble() < 0.5 ? true : false;
     }
 
     public static void main(String[] args) {

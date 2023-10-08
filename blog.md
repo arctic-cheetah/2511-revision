@@ -12,3 +12,8 @@ BooleanOperators contain fields about the operator name,
 left and right node
 
 BooleanVariables contain fields about the boolean variable
+
+# Core/Choice Exercise: The Art of Randomness
+## Q1)How would you write tests for Game with the default constructor that prove the battle function works as expected?
+
+As the limit of ROUNDS -> infinity, the probability of the player winning approaches 0.5, we must set the ROUNDS to be a very large number otherwise if the ROUNDS are small the data will be skewed and will produce a less desired tolerance 
