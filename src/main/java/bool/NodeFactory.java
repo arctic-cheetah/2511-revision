@@ -1,7 +1,6 @@
 package bool;
 
 import java.util.Iterator;
-
 import org.json.JSONObject;
 
 public class NodeFactory {
@@ -36,7 +35,6 @@ public class NodeFactory {
     }
 
     private static JSONObject getJsonObjFromKey(JSONObject obj, String currKey) {
-        JSONObject tmp = (JSONObject) obj.get(currKey);
-        return tmp;
+        return (JSONObject) obj.get(currKey);
     }
 }
