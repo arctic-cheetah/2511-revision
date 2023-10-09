@@ -46,13 +46,7 @@ public class TextEditorFactory extends EditorFactory {
     }
 
     public void createWindowAdapter() {
-        setWindowAdapter(new WindowCloser(pane));
+        setWindowAdapter(new WindowCloser(getPane()));
     }
 
-    public void addComponentsToFrame() {
-        getFrame().setJMenuBar(menuBar);
-        getFrame().addWindowListener(windowAdapter);
-        getFrame().getContentPane().add(toolBar, "North");
-        getFrame().getContentPane().add(pane);
-    }
 }

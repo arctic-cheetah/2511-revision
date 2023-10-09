@@ -9,12 +9,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JToolBar;
 
 public abstract class EditorFactory {
-    protected JFrame frame;
-    protected JMenuBar menuBar;
-    protected JToolBar toolBar;
-    protected WindowAdapter windowAdapter;
-    protected JDesktopPane pane;
-    protected ActionListener listener;
+    private JFrame frame;
+    private JMenuBar menuBar;
+    private JToolBar toolBar;
+    private WindowAdapter windowAdapter;
+    private JDesktopPane pane;
+    private ActionListener listener;
 
     public abstract void createFrame();
 
@@ -30,7 +30,12 @@ public abstract class EditorFactory {
 
     public abstract void createWindowAdapter();
 
-    public abstract void addComponentsToFrame();
+    public void addComponentsToFrame() {
+        getFrame().setJMenuBar(menuBar);
+        getFrame().addWindowListener(windowAdapter);
+        getFrame().getContentPane().add(toolBar, "North");
+        getFrame().getContentPane().add(pane);
+    }
 
     public JFrame getFrame() {
         return frame;

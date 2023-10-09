@@ -22,7 +22,7 @@ public class EditorApplication {
     }
 
     public static void main(String[] args) {
-        String editorType = "HTML Editor";
+        String editorType = "Text Editor";
         EditorApplication editor = new EditorApplication(editorType);
         editor.setFrameVisible(true);
     }
