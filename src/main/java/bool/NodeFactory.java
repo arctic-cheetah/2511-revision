@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 public class NodeFactory {
     public static BooleanNode getBooleanNode(JSONObject obj) {
-        BooleanOperator node = new BooleanOperator();
+        BooleanOperator node = new BooleanRootNode();
         Iterator<String> keys = obj.keys();
         while (keys.hasNext()) {
             String currKey = keys.next();

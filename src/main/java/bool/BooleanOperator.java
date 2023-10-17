@@ -1,6 +1,6 @@
 package bool;
 
-public class BooleanOperator implements BooleanNode {
+public abstract class BooleanOperator implements BooleanNode {
     private BooleanNode left = null;
     private BooleanNode right = null;
 
@@ -31,13 +31,9 @@ public class BooleanOperator implements BooleanNode {
         return prettyBooleanString(left.prettyBoolean(), right.prettyBoolean());
     }
 
-    public boolean operateOn(boolean l, boolean r) {
-        return false;
-    }
+    public abstract boolean operateOn(boolean l, boolean r);
 
-    public String prettyBooleanString(String l, String r) {
-        return "null";
-    }
+    public abstract String prettyBooleanString(String l, String r);
 
     // Getters and setters
     public void setLeft(BooleanNode left) {
