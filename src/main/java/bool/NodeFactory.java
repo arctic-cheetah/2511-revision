@@ -18,7 +18,7 @@ public class NodeFactory {
                     return new BooleanVariable(obj.get(currKey).toString());
                 } else {
                     // Node is an boolean Operator, check the others
-                    node = new BooleanOperator(obj.get(currKey).toString());
+                    node = BooleanOperator.createBooleanOperator(obj.get(currKey).toString());
                 }
                 // Recursion below
             } else if (currKey.equals("subnode1")) {

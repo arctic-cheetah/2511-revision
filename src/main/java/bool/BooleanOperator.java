@@ -3,32 +3,16 @@ package bool;
 public class BooleanOperator implements BooleanNode {
     private BooleanNode left = null;
     private BooleanNode right = null;
-    private String operator = "";
 
-    public BooleanOperator(String operator, BooleanNode left, BooleanNode right) {
-        this.operator = operator;
-
-        if (operator.equals("not")) {
-            this.left = left;
-            this.right = left;
+    public static BooleanOperator createBooleanOperator(String operator) {
+        if (operator.equalsIgnoreCase("and"))
+            return new BooleanAndNode();
+        else if (operator.equalsIgnoreCase("or")) {
+            return new BooleanOrNode();
         } else {
-            this.left = left;
-            this.right = right;
+            return new BooleanNotNode();
         }
 
-    }
-
-    public BooleanOperator(String operator, BooleanNode left) {
-        this.operator = operator;
-        this.left = left;
-        this.right = left;
-    }
-
-    public BooleanOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public BooleanOperator() {
     }
 
     public BooleanNode getLeft() {
@@ -44,27 +28,15 @@ public class BooleanOperator implements BooleanNode {
     }
 
     public String prettyBoolean() {
-        return prettyBoolean(left.prettyBoolean(), right.prettyBoolean());
+        return prettyBooleanString(left.prettyBoolean(), right.prettyBoolean());
     }
 
-    private boolean operateOn(boolean l, boolean r) {
-        if (operator.equals("and")) {
-            return l && r;
-        } else if (operator.equals("or")) {
-            return l || r;
-        }
-        // operator is not
-        return !l;
+    public boolean operateOn(boolean l, boolean r) {
+        return false;
     }
 
-    public String prettyBoolean(String l, String r) {
-        if (operator.equals("and")) {
-            return "(AND" + " " + l + " " + r + ")";
-        } else if (operator.equals("or")) {
-            return "(OR" + " " + l + " " + r + ")";
-        }
-        // operator is not
-        return "(NOT" + " " + l + ")";
+    public String prettyBooleanString(String l, String r) {
+        return "null";
     }
 
     // Getters and setters
@@ -76,7 +48,4 @@ public class BooleanOperator implements BooleanNode {
         this.right = right;
     }
 
-    public void setoperator(String operator) {
-        this.operator = operator;
-    }
 }

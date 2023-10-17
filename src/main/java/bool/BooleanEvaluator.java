@@ -29,15 +29,6 @@ public class BooleanEvaluator {
     }
 
     public static void main(String[] args) {
-        BooleanVariable t1 = new BooleanVariable(true);
-        BooleanVariable t2 = new BooleanVariable(false);
-        BooleanOperator not1 = new BooleanOperator("not", t1);
-
-        BooleanOperator ex1 = new BooleanOperator("or", not1, t2);
-        BooleanNode n1 = ex1;
-
-        System.out.println(BooleanEvaluator.evaluate(n1));
-        System.out.println(BooleanEvaluator.prettyPrint(n1));
 
         String jsonString = readInData("data2.json");
         String tmp = JsonParser.parseString(jsonString).getAsJsonObject().toString();
@@ -46,6 +37,14 @@ public class BooleanEvaluator {
         BooleanNode n2 = NodeFactory.getBooleanNode(j);
         System.out.println(n2.prettyBoolean());
         System.out.println(n2.evaluteExpression());
+
+        jsonString = readInData("data.json");
+        tmp = JsonParser.parseString(jsonString).getAsJsonObject().toString();
+        j = new JSONObject(tmp);
+
+        BooleanNode n1 = NodeFactory.getBooleanNode(j);
+        System.out.println(n1.prettyBoolean());
+        System.out.println(n1.evaluteExpression());
 
     }
 
