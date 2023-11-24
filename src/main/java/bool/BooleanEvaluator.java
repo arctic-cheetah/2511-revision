@@ -33,6 +33,7 @@ public class BooleanEvaluator {
         String jsonString = readInData("data2.json");
         String tmp = JsonParser.parseString(jsonString).getAsJsonObject().toString();
         JSONObject j = new JSONObject(tmp);
+        System.out.println(j.getClass().getName());
 
         BooleanNode n2 = NodeFactory.getBooleanNode(j);
         System.out.println(n2.prettyBoolean());

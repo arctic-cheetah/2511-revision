@@ -12,7 +12,6 @@ public abstract class BooleanOperator implements BooleanNode {
         } else {
             return new BooleanNotNode();
         }
-
     }
 
     public BooleanNode getLeft() {
