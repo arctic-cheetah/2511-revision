@@ -11,7 +11,7 @@ public class GitlabRunner {
     }
 
     // TODO : fix for q8e)
-    public void run(Runnable runnable) {
+    public synchronized void run(Runnable runnable) {
         try {
             runnable.run();
         } catch (Exception e) {
