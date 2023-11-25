@@ -1,0 +1,21 @@
+ShoppingCart:
+    - List<Product>
+
+Product:
+    - name : string
+    - price : double
+    - weight : double
+    - shippingRate : double
+    - shippingCost : double
+
+DiscountDecorator:
+    - DiscountByPercentage : double
+    - Cumulatively 
+
+FreeShippingDecorator: 
+    - Free shipping given
+        - Price
+        - Weight
+
+Applied to a discounted product, free shipping 
+depends on the discounted price.
